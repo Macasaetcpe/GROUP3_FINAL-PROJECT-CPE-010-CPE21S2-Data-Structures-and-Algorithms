@@ -1,6 +1,7 @@
 #ifndef QUEUE_H
 #define QUEUE_H
 
+// Linked-list queue: first in, first out (FIFO).
 template <typename T>
 class Queue {
 private:
@@ -28,6 +29,7 @@ public:
     bool isEmpty() const { return front_ == nullptr; }
     int size() const { return size_; }
 
+    // Add to the back: O(1)
     void enqueue(const T& v) {
         Node* n = new Node(v);
         if (rear_) rear_->next = n;
@@ -36,6 +38,7 @@ public:
         size_++;
     }
 
+    // Remove from the front: O(1)
     bool dequeue(T& out) {
         if (!front_) return false;
         Node* t = front_;
@@ -47,12 +50,14 @@ public:
         return true;
     }
 
+    // Look at the front without removing: O(1)
     bool peek(T& out) const {
         if (!front_) return false;
         out = front_->value;
         return true;
     }
 
+    // Is this value already waiting in the queue? O(n)
     bool contains(const T& v) const {
         for (Node* c = front_; c; c = c->next)
             if (c->value == v) return true;
