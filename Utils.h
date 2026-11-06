@@ -4,6 +4,7 @@
 #include <cctype>
 #include <cstdio>
 #include <cstdlib>
+#include <ctime>
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -78,6 +79,30 @@ inline int readTime(const std::string& prompt) {
             if (h <= 23 && m <= 59) return h * 60 + m;
         }
         std::cout << "  [Invalid] Use 24-hour format HH:MM (example 08:15).\n";
+    }
+}
+
+
+// Current clock time as minutes after midnight
+inline int nowMinutes() {
+    std::time_t now = std::time(nullptr);
+    std::tm* local = std::localtime(&now);
+    return local->tm_hour * 60 + local->tm_min;
+}
+
+// Like readTime, but pressing Enter uses the current time.
+inline int readTimeOrNow(const std::string& prompt) {
+    while (true) {
+        std::string s = readLine(prompt);
+        if (s.empty()) return nowMinutes();
+        if (s.size() == 5 && s[2] == ':' && std::isdigit((unsigned char)s[0]) &&
+            std::isdigit((unsigned char)s[1]) && std::isdigit((unsigned char)s[3]) &&
+            std::isdigit((unsigned char)s[4])) {
+            int h = (s[0] - '0') * 10 + (s[1] - '0');
+            int m = (s[3] - '0') * 10 + (s[4] - '0');
+            if (h <= 23 && m <= 59) return h * 60 + m;
+        }
+        std::cout << "  [Invalid] Use HH:MM (example 08:15) or press Enter for now.\n";
     }
 }
 
