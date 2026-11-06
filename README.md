@@ -52,17 +52,13 @@ AttendTrack is a C++ console program that replaces the paper logbook used to tra
 
 Requires a C++17 compiler (g++ 9 or newer).
 
-```
-g++ -std=c++17 -O2 main.cpp -o attendtrack
-./attendtrack            # Windows: attendtrack.exe
-./attendtrack --demo     # starts with 6 sample employees for testing
-```
-
-When the program asks for a time, type it in 24-hour format (for example `08:15`) or press Enter to use the current time.
+### Quick Run in VS Code
+1. Open the project folder in VS Code (`File > Open Folder...`).
+2. Open `main.cpp` and click the **Play / Run button ▶** in the top-right corner.
 
 ## Sample Input and Output
 
-Start with `./attendtrack --demo`, then enter: `2` `1005` `08:05`, then `2` `1001` `07:50`, then `3` `1005` `17:00`, then `6`, then `5` `1`.
+Start with downloading all the files then pressing `the run button`, then enter: `2` `1005` `08:05`, then `2` `1001` `07:50`, then `3` `1005` `17:00`, then `6`, then `5` `1`.
 
 ```
 --- Time In ---
