@@ -1,6 +1,6 @@
 #ifndef QUEUE_H
 #define QUEUE_H
- 
+
 template <typename T>
 class Queue {
 private:
@@ -12,7 +12,7 @@ private:
     Node* front_;
     Node* rear_;
     int size_;
- 
+
 public:
     Queue() : front_(nullptr), rear_(nullptr), size_(0) {}
     ~Queue() {
@@ -24,10 +24,10 @@ public:
     }
     Queue(const Queue&) = delete;
     Queue& operator=(const Queue&) = delete;
- 
+
     bool isEmpty() const { return front_ == nullptr; }
     int size() const { return size_; }
- 
+
     void enqueue(const T& v) {
         Node* n = new Node(v);
         if (rear_) rear_->next = n;
@@ -35,7 +35,7 @@ public:
         rear_ = n;
         size_++;
     }
- 
+
     bool dequeue(T& out) {
         if (!front_) return false;
         Node* t = front_;
@@ -46,18 +46,18 @@ public:
         size_--;
         return true;
     }
- 
+
     bool peek(T& out) const {
         if (!front_) return false;
         out = front_->value;
         return true;
     }
- 
+
     bool contains(const T& v) const {
         for (Node* c = front_; c; c = c->next)
             if (c->value == v) return true;
         return false;
     }
 };
- 
+
 #endif
