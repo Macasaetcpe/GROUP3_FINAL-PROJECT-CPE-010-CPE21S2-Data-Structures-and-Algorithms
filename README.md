@@ -100,8 +100,8 @@ It times binary search, linear search, merge sort, and queue enqueue for 100 to 
 
 | Name | Role |
 |---|---|
-| Barizo, Julian Benedict D.R|  |
-| Cruz, Elijah J. | Leon Scott Kennedy |
-| Esteta, Jesse |  |
-| Fernandez, Cedric S. |  |
-| Macasaet, John David C. |  |
+| Barizo, Julian Benedict D.R| Coder, Documentation |
+| Cruz, Elijah J. | Coder, Documentation |
+| Esteta, Jesse | Coder, Documentation |
+| Fernandez, Cedric S. | Coder, Documentation |
+| Macasaet, John David C. | Coder, Documentation |
